@@ -31,8 +31,8 @@ const Services = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              tempora eligendi, quisquam tempore sint reiciendis.
+              From modern Next.js builds to security testing, I help teams ship
+              fast, clean, and secure web experiences.
             </motion.p>
           </div>
 

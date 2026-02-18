@@ -19,16 +19,16 @@ const Layout = ({ children }) => {
     >
       {/* metadata */}
       <Head>
-        <title>Ethan Smith | Portfolio</title>
+        <title>Selwyn Uy | Next.js Developer & Penetration Tester</title>
         <meta
           name="description"
-          content="Ethan Smith is a Full-stack web developer with 10+ years of experience."
+          content="Selwyn Uy is a Next.js web developer and penetration tester building fast, secure web apps."
         />
         <meta
           name="keywords"
-          content="react, next, nextjs, html, css, javascript, js, modern-ui, modern-ux, portfolio, framer-motion, 3d-website, particle-effect"
+          content="selwyn uy, next.js, nextjs, react, web developer, frontend, full-stack, penetration tester, pentest, cybersecurity, framer motion, portfolio"
         />
-        <meta name="author" content="Sanidhya Kumar Verma" />
+        <meta name="author" content="Selwyn Uy" />
         <meta name="theme-color" content="#f13024" />
       </Head>
 

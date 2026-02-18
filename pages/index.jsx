@@ -20,8 +20,9 @@ const Home = () => {
             exit="hidden"
             className="h1"
           >
-            Transforming Ideas <br /> Into{" "}
-            <span className="text-accent">Digital Reality</span>
+            <span className="text-accent">Next.js Developer</span>
+            <br />
+            <span className="text-accent">Penetration Tester</span>
           </motion.h1>
 
           {/* subtitle */}
@@ -32,10 +33,9 @@ const Home = () => {
             exit="hidden"
             className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
           >
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate,
-            exercitationem harum, quia nulla temporibus deleniti libero veniam
-            vero beatae numquam ducimus illum ab similique ipsam tempore fugit
-            quod laudantium debitis.
+            I build modern, responsive Next.js websites and ship secure features
+            with a security-first mindset. If you need performance, clean UX,
+            and practical pentest-driven hardening, let’s talk.
           </motion.p>
 
           {/* btn */}

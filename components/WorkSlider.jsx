@@ -13,48 +13,48 @@ const workSlides = {
     {
       images: [
         {
-          title: "title",
+          title: "Project 1 (replace)",
           path: "/thumb1.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 2 (replace)",
           path: "/thumb2.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 3 (replace)",
           path: "/thumb3.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 4 (replace)",
           path: "/thumb4.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
       ],
     },
     {
       images: [
         {
-          title: "title",
+          title: "Project 5 (replace)",
           path: "/thumb4.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 6 (replace)",
           path: "/thumb1.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 7 (replace)",
           path: "/thumb2.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
         {
-          title: "title",
+          title: "Project 8 (replace)",
           path: "/thumb3.jpg",
-          link: "http://example.com",
+          link: "https://github.com/Selwynuy",
         },
       ],
     },
