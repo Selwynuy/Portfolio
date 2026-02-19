@@ -285,7 +285,7 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="flex flex-col w-full xl:max-w-[48%] h-[480px]"
+          className="flex flex-col w-full xl:max-w-[48%] min-h-[480px]"
         >
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemI) => (
@@ -386,7 +386,7 @@ const About = () => {
                       ) : null}
 
                       {/* grouped chips — scrollable */}
-                      <div className="max-h-[330px] overflow-y-auto pr-1 flex flex-col gap-y-4 scrollbar-thin">
+                      <div className="max-h-[330px] overflow-y-auto overflow-x-hidden pr-2 flex flex-col gap-y-4 scrollbar-thin">
                         {role.groups.map((group) => (
                           <div key={group.title}>
                             <p className="text-[11px] uppercase tracking-widest text-white/30 mb-2">
@@ -396,7 +396,7 @@ const About = () => {
                               {group.items.map((skill) => (
                                 <span
                                   key={skill}
-                                  className="text-[11px] text-white/70 border border-white/10 bg-white/5 px-2 py-[3px] rounded-md"
+                                  className="text-[11px] text-white/70 border border-white/10 bg-white/5 px-2 py-[3px] rounded-md break-words max-w-full"
                                 >
                                   {skill}
                                 </span>

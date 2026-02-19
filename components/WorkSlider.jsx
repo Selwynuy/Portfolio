@@ -7,56 +7,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import { projects } from "../data/projects";
 
 const workSlides = {
   slides: [
     {
-      images: [
-        {
-          title: "Project 1 (replace)",
-          path: "/thumb1.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 2 (replace)",
-          path: "/thumb2.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 3 (replace)",
-          path: "/thumb3.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 4 (replace)",
-          path: "/thumb4.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-      ],
+      images: projects.slice(0, 4).map((project) => ({
+        title: project.title,
+        path: project.thumbnail,
+        link: `/work/${project.slug}`,
+      })),
     },
     {
-      images: [
-        {
-          title: "Project 5 (replace)",
-          path: "/thumb4.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 6 (replace)",
-          path: "/thumb1.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 7 (replace)",
-          path: "/thumb2.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-        {
-          title: "Project 8 (replace)",
-          path: "/thumb3.jpg",
-          link: "https://github.com/Selwynuy",
-        },
-      ],
+      images: projects.slice(4).map((project) => ({
+        title: project.title,
+        path: project.thumbnail,
+        link: `/work/${project.slug}`,
+      })),
     },
   ],
 };
@@ -73,7 +40,11 @@ const WorkSlider = () => {
     >
       {workSlides.slides.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4">
+          <div className={`grid gap-4 ${
+            slide.images.length === 1 
+              ? "grid-cols-1 grid-rows-1 max-w-md mx-auto" 
+              : "grid-cols-2 grid-rows-2"
+          }`}>
             {slide.images.map((image, imageI) => (
               <div
                 className="relative rounded-lg overflow-hidden flex items-center justify-center group"
@@ -86,6 +57,7 @@ const WorkSlider = () => {
                     alt={image.title}
                     width={500}
                     height={300}
+                    className="object-cover w-full h-full"
                   />
 
                   {/* overlay gradient */}
@@ -98,8 +70,6 @@ const WorkSlider = () => {
                   <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-10 group-hover:xl:-translate-y-20 transition-all duration-300">
                     <Link
                       href={image.link}
-                      target="_blank"
-                      rel="noreferrer noopener"
                       className="flex items-center gap-x-2 text-[13px] tracking-[0.2em]"
                     >
                       {/* title part 1 */}

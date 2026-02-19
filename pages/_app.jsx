@@ -8,11 +8,12 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const isWorkDetailPage = router.pathname.startsWith("/work/") && router.pathname !== "/work";
 
   return (
     <Layout>
       <AnimatePresence mode="wait">
-        <motion.div key={router.route} className="h-full">
+        <motion.div key={router.route} className={isWorkDetailPage ? "min-h-full" : "h-full"}>
           <Transition />
           <Component {...pageProps} />
         </motion.div>

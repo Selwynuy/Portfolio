@@ -1,5 +1,7 @@
 import { Sora } from "next/font/google";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import Header from "../components/Header";
 import Nav from "../components/Nav";
@@ -13,9 +15,28 @@ const sora = Sora({
 });
 
 const Layout = ({ children }) => {
+  const router = useRouter();
+  const isWorkDetailPage = router.pathname.startsWith("/work/") && router.pathname !== "/work";
+
+  // Add class to html and body for work detail pages
+  useEffect(() => {
+    if (isWorkDetailPage) {
+      document.documentElement.classList.add("page-scrollable");
+      document.body.classList.add("page-scrollable");
+    } else {
+      document.documentElement.classList.remove("page-scrollable");
+      document.body.classList.remove("page-scrollable");
+    }
+    
+    return () => {
+      document.documentElement.classList.remove("page-scrollable");
+      document.body.classList.remove("page-scrollable");
+    };
+  }, [isWorkDetailPage]);
+
   return (
     <main
-      className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
+      className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative ${isWorkDetailPage ? "overflow-visible" : ""}`}
     >
       {/* metadata */}
       <Head>
