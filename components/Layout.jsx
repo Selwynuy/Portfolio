@@ -20,22 +20,23 @@ const Layout = ({ children }) => {
 
   // Add class to html and body for work detail pages
   useEffect(() => {
-    let timer;
+    // Always remove classes first to ensure clean state
+    document.documentElement.classList.remove("page-scrollable");
+    document.body.classList.remove("page-scrollable");
+
     if (isWorkDetailPage) {
-      timer = setTimeout(() => {
+      const timer = setTimeout(() => {
         document.documentElement.classList.add("page-scrollable");
         document.body.classList.add("page-scrollable");
       }, 1200); // Delay to match page transition
-    } else {
-      document.documentElement.classList.remove("page-scrollable");
-      document.body.classList.remove("page-scrollable");
-    }
 
-    return () => {
-      clearTimeout(timer);
-      document.documentElement.classList.remove("page-scrollable");
-      document.body.classList.remove("page-scrollable");
-    };
+      return () => {
+        clearTimeout(timer);
+        // Clean up on unmount or route change
+        document.documentElement.classList.remove("page-scrollable");
+        document.body.classList.remove("page-scrollable");
+      };
+    }
   }, [isWorkDetailPage]);
 
   return (
