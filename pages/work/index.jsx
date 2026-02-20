@@ -29,8 +29,8 @@ const Work = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0"
             >
-              A selection of projects and builds. Replace these cards with your
-              real deployments, demos, and write-ups.
+              A collection of web applications, security assessments, and client
+              projects I've built and tested.
             </motion.p>
           </div>
 
