@@ -34,14 +34,14 @@ const CertsCarousel = ({ certs = [] }) => {
           <SwiperSlide key={i}>
             <div className="mx-auto w-full max-w-[420px] bg-[rgba(65,47,123,0.15)] rounded-xl border border-white/10 overflow-hidden">
               {/* image top — full width, fixed height */}
-              <div className="w-full h-[220px] bg-white/5 border-b border-white/10 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-[280px] bg-white/5 border-b border-white/10 overflow-hidden">
                 {cert.image ? (
                   <Image
                     src={cert.image}
                     alt={cert.title}
                     width={420}
-                    height={220}
-                    className="object-cover w-full h-full"
+                    height={280}
+                    className="object-contain w-full h-full"
                   />
                 ) : (
                   <span className="text-[13px] text-white/25 text-center px-4 leading-relaxed">

@@ -52,16 +52,14 @@ export const aboutData = [
         groups: [
           {
             title: "Fundamentals",
-            items: ["Linux", "Network Security", "Cryptography"],
+            items: ["Linux", "Network Security"],
           },
           {
             title: "Web App Security",
             items: [
               "OWASP Top 10",
-              "SQL Injection (SQLi)",
+              "SQL Injection",
               "Cross-Site Scripting (XSS)",
-              "Server-Side Template Injection (SSTI)",
-              "CSRF (Cross-Site Request Forgery)",
             ],
           },
           {
@@ -69,17 +67,12 @@ export const aboutData = [
             items: [
               "VAPT",
               "Web Application Penetration Testing",
-              "Privilege Escalation",
-              "OSINT",
               "Burp Suite",
             ],
           },
           {
-            title: "Blue Team & Research",
+            title: "Research & Practice",
             items: [
-              "Advanced Persistent Threat (APT) Analysis",
-              "Digital Forensics",
-              "Dark Web Operations",
               "Bug Bounty",
               "Capture The Flag",
             ],
@@ -92,13 +85,17 @@ export const aboutData = [
     title: "experience",
     info: [
       {
-        title: "Next.js Web Developer — Freelance",
-        stage: "2020 - Present",
-      },
-      {
-        title: "Vulnerability Assesment & Penetration Tester Intern — Black Bear Securities",
+        title: "Vulnerability Assesment & Penetration Tester",
+        company: "Black Bear Securities",
+        position: "Intern",
         stage: "February 2026 - Present",
       },
+      {
+        title: "Next.js Web Developer",
+        position: "Freelance",
+        stage: "2020 - Present",
+      },
+
     ],
   },
   {
@@ -411,27 +408,45 @@ const About = () => {
               </div>
             ) : (
               /* experience (and any other plain-list tab) */
-              <div className="flex flex-col gap-y-3 w-full">
+              <div className="flex flex-col gap-y-4 w-full">
                 {aboutData[index].info.map((item, itemI) => (
                   <div
                     key={itemI}
-                    className="w-full bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl pl-4 pr-5 py-4 border-l-2 border-l-accent"
+                    className="w-full bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl pl-4 pr-5 py-5 border-l-2 border-l-accent"
                   >
-                    {/* date badge */}
-                    {item.stage && (
-                      <span className="inline-block text-[10px] uppercase tracking-widest text-accent/80 bg-accent/10 border border-accent/20 rounded px-2 py-[2px] mb-2">
-                        {item.stage}
-                      </span>
+                    {/* Primary: Position (most prominent) */}
+                    {item.position && (
+                      <div className="text-accent font-bold text-[16px] leading-tight mb-1.5">
+                        {item.position}
+                      </div>
                     )}
 
-                    {/* role / title */}
-                    <div className="text-white font-semibold text-[14px] leading-snug">
-                      {item.title}
-                    </div>
+                    {/* Secondary: Title/Role */}
+                    {item.title && (
+                      <div className={`text-white font-semibold ${item.position ? 'text-[14px]' : 'text-[16px]'} leading-snug mb-2`}>
+                        {item.title}
+                      </div>
+                    )}
+
+                    {/* Tertiary: Company */}
+                    {item.company && (
+                      <div className="text-white/70 font-medium text-[13px] mb-3">
+                        {item.company}
+                      </div>
+                    )}
+
+                    {/* Date badge - subtle at bottom */}
+                    {item.stage && (
+                      <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/5">
+                        <span className="text-[10px] uppercase tracking-widest text-white/40">
+                          {item.stage}
+                        </span>
+                      </div>
+                    )}
 
                     {/* sub-info (course, description, etc) */}
                     {(item.info || item.course) && (
-                      <div className="text-[12px] text-white/50 mt-1">
+                      <div className="text-[12px] text-white/50 mt-2">
                         {item.info ?? item.course}
                       </div>
                     )}
