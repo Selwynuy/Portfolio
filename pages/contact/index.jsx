@@ -6,33 +6,52 @@ import { useState } from "react";
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+    setError("");
 
-    const myForm = event.target;
-    const formData = new FormData(myForm);
+    const formData = new FormData(event.target);
+    
+    const formDataObj = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-    fetch("/__forms.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Thank you. I will get back to you ASAP.");
-        } else {
-          console.log(res);
-        }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataObj),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setIsSubmitted(true);
+        event.target.reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setError(result.error || "Something went wrong. Please try again or email me directly.");
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="h-full bg-primary/30">
-      <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
+    <div className="min-h-screen bg-primary/30 pt-[15vh] pb-32 md:py-32">
+      <div className="container mx-auto px-4 text-center xl:text-left flex items-center justify-center min-h-full">
         {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
           {/* text */}
@@ -45,6 +64,28 @@ const Contact = () => {
           >
             Let's <span className="text-accent">connect.</span>
           </motion.h2>
+
+          {/* success message */}
+          {isSubmitted && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-center"
+            >
+              Thank you! I'll get back to you ASAP.
+            </motion.div>
+          )}
+
+          {/* error message */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-center"
+            >
+              {error}
+            </motion.div>
+          )}
 
           {/* form */}
           <motion.form
@@ -59,14 +100,12 @@ const Contact = () => {
             name="contact"
           >
             {/* input group */}
-            <div className="flex gap-x-6 w-full">
-              <input type="hidden" name="form-name" value="contact" />
-
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
-                className="input"
+                className="input flex-1"
                 disabled={isLoading}
                 aria-disabled={isLoading}
                 required
@@ -76,7 +115,7 @@ const Contact = () => {
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                className="input"
+                className="input flex-1"
                 disabled={isLoading}
                 aria-disabled={isLoading}
                 required
@@ -101,15 +140,16 @@ const Contact = () => {
               aria-disabled={isLoading}
               required
               aria-required
+              rows={6}
             />
             <button
               type="submit"
-              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
+              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
               aria-disabled={isLoading}
             >
               <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                Let's talk
+                {isLoading ? "Sending..." : "Let's talk"}
               </span>
 
               <BsArrowRight

@@ -25,22 +25,22 @@ const ProjectDetail = ({ project }) => {
   }
 
   return (
-    <div className="min-h-full bg-primary/30 py-32">
+    <div className="min-h-full bg-primary/30 pt-[15vh] pb-32 md:py-32">
       <Circles />
-      <div className="container mx-auto px-4 pb-20">
+      <div className="container mx-auto px-4 pb-24 md:pb-20">
         {/* back button */}
         <motion.div
           variants={fadeIn("right", 0.2)}
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
           <Link
             href="/work"
-            className="inline-flex items-center gap-x-2 text-white/60 hover:text-accent transition-colors duration-300"
+            className="inline-flex items-center gap-x-2 text-sm md:text-base text-white/60 hover:text-accent transition-colors duration-300"
           >
-            <BsArrowLeft />
+            <BsArrowLeft className="text-lg" />
             <span>Back to projects</span>
           </Link>
         </motion.div>
@@ -53,7 +53,7 @@ const ProjectDetail = ({ project }) => {
           exit="hidden"
           className="mb-12"
         >
-          <div className="relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden border border-white/10 mb-8">
+          <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden border border-white/10 mb-6 md:mb-8">
             <Image
               src={project.thumbnail}
               alt={project.title}
@@ -63,20 +63,20 @@ const ProjectDetail = ({ project }) => {
             />
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-            <div>
-              <h1 className="h1 mb-2">{project.title}</h1>
-              <p className="text-white/60 text-lg">{project.description}</p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8">
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 md:mb-3 leading-tight">{project.title}</h1>
+              <p className="text-white/60 text-base md:text-lg leading-relaxed">{project.description}</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex items-center gap-x-2 px-6 py-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-accent transition-all duration-300"
+                  className="flex items-center justify-center gap-x-2 px-5 py-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-accent transition-all duration-300 text-sm md:text-base"
                 >
-                  <BsGithub />
+                  <BsGithub className="text-lg" />
                   <span>GitHub</span>
                 </a>
               )}
@@ -85,9 +85,9 @@ const ProjectDetail = ({ project }) => {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex items-center gap-x-2 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/80 transition-all duration-300"
+                  className="flex items-center justify-center gap-x-2 px-5 py-3 bg-accent text-white rounded-lg hover:bg-accent/80 transition-all duration-300 text-sm md:text-base"
                 >
-                  <BsBoxArrowUpRight />
+                  <BsBoxArrowUpRight className="text-lg" />
                   <span>Live Demo</span>
                 </a>
               )}
@@ -96,19 +96,19 @@ const ProjectDetail = ({ project }) => {
         </motion.div>
 
         {/* content grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {/* main content */}
           <motion.div
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="md:col-span-2 space-y-8"
+            className="md:col-span-2 space-y-6 md:space-y-8"
           >
             {/* description */}
             <div>
-              <h2 className="text-2xl font-semibold mb-4">About this project</h2>
-              <p className="text-white/70 leading-relaxed">
+              <h2 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">About this project</h2>
+              <p className="text-white/70 text-sm md:text-base leading-relaxed">
                 {project.longDescription}
               </p>
             </div>
@@ -116,11 +116,11 @@ const ProjectDetail = ({ project }) => {
             {/* features */}
             {project.features && project.features.length > 0 && (
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-                <ul className="space-y-2">
+                <h2 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">Key Features</h2>
+                <ul className="space-y-2 md:space-y-3">
                   {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-x-3 text-white/70">
-                      <span className="text-accent mt-1">•</span>
+                    <li key={i} className="flex items-start gap-x-3 text-white/70 text-sm md:text-base">
+                      <span className="text-accent mt-1 flex-shrink-0">•</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -135,17 +135,17 @@ const ProjectDetail = ({ project }) => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
             {/* tech stack */}
             {project.techStack && project.techStack.length > 0 && (
-              <div className="bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl p-6">
-                <h3 className="text-lg font-semibold mb-4">Tech Stack</h3>
+              <div className="bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-sm text-white/70 border border-white/10 bg-white/5 px-3 py-1 rounded-md"
+                      className="text-xs md:text-sm text-white/70 border border-white/10 bg-white/5 px-2.5 md:px-3 py-1 rounded-md"
                     >
                       {tech}
                     </span>
@@ -156,9 +156,9 @@ const ProjectDetail = ({ project }) => {
 
             {/* category */}
             {project.category && (
-              <div className="bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl p-6">
-                <h3 className="text-lg font-semibold mb-2">Category</h3>
-                <p className="text-white/70">{project.category}</p>
+              <div className="bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold mb-2">Category</h3>
+                <p className="text-white/70 text-sm md:text-base">{project.category}</p>
               </div>
             )}
           </motion.div>

@@ -186,7 +186,7 @@ const About = () => {
   const [skillTab, setSkillTab] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="min-h-screen bg-primary/30 pt-[15vh] pb-32 md:pb-16 md:pt-36 xl:pt-40 text-center xl:text-left flex md:items-center">
       <Circles />
 
       {/* avatar img */}
@@ -200,7 +200,7 @@ const About = () => {
         <Avatar />
       </motion.div>
 
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+      <div className="container mx-auto w-full flex flex-col items-center xl:flex-row gap-x-6 pb-24 md:pb-8 px-4 xl:items-center">
         {/* text */}
         <div className="flex-1 flex flex-col justify-center">
           <motion.h2
@@ -221,8 +221,7 @@ const About = () => {
           >
             I’m Selwyn Uy — a Next.js web developer and penetration tester. I
             ship clean, responsive UIs, build reliable APIs, and approach every
-            feature with a security-first mindset (threat modeling, input
-            validation, auth/session hardening, and practical testing).
+            feature with a security-first mindset.
           </motion.p>
 
           {/* counters */}
@@ -282,9 +281,9 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="flex flex-col w-full xl:max-w-[48%] min-h-[480px]"
+          className="flex flex-col w-full xl:max-w-[48%] min-h-[480px] overflow-visible"
         >
-          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4 overflow-x-auto w-full justify-center xl:justify-start pb-2">
             {aboutData.map((item, itemI) => (
               <div
                 key={itemI}
@@ -299,7 +298,7 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full">
+          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full overflow-visible">
             {aboutData[index].title === "certs" ? (
               <CertsCarousel certs={aboutData[index].info} />
             ) : aboutData[index].title === "education" ? (
@@ -383,7 +382,7 @@ const About = () => {
                       ) : null}
 
                       {/* grouped chips — scrollable */}
-                      <div className="max-h-[330px] overflow-y-auto overflow-x-hidden pr-2 flex flex-col gap-y-4 scrollbar-thin">
+                      <div className="max-h-[400px] md:max-h-[330px] overflow-y-auto overflow-x-hidden pr-2 flex flex-col gap-y-4 scrollbar-thin">
                         {role.groups.map((group) => (
                           <div key={group.title}>
                             <p className="text-[11px] uppercase tracking-widest text-white/30 mb-2">
