@@ -175,7 +175,7 @@ export const aboutData = [
         stage: "2022-Present",
         gpa: "1.54",
         category: "Education",
-        image: "/certs/msu.png",
+        image: "/certs/msu.jpg",
       },
     ],
   },
