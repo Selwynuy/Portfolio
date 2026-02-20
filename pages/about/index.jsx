@@ -52,29 +52,52 @@ export const aboutData = [
         groups: [
           {
             title: "Fundamentals",
-            items: ["Linux", "Network Security"],
+            items: [
+              "Linux Administration",
+              "Network Protocols & Security",
+              "System Security Hardening",
+              "Cryptography Basics",
+            ],
           },
           {
-            title: "Web App Security",
+            title: "Web Application Security",
             items: [
               "OWASP Top 10",
-              "SQL Injection",
-              "Cross-Site Scripting (XSS)",
+              "Authentication & Session Management",
+              "API Security Testing",
+              "Server-Side Request Forgery (SSRF)",
+              "XML External Entity (XXE)",
+              "Security Misconfiguration",
             ],
           },
           {
-            title: "Offensive Testing",
+            title: "Penetration Testing Tools",
             items: [
-              "VAPT",
-              "Web Application Penetration Testing",
-              "Burp Suite",
+              "Burp Suite Professional",
+              "OWASP ZAP",
+              "Nmap",
+              "Metasploit",
+              "SQLMap",
+              "Nikto",
             ],
           },
           {
-            title: "Research & Practice",
+            title: "Vulnerability Assessment",
             items: [
-              "Bug Bounty",
-              "Capture The Flag",
+              "VAPT Methodology",
+              "Threat Modeling",
+              "Risk Assessment",
+              "Security Reporting",
+              "Remediation Guidance",
+            ],
+          },
+          {
+            title: "Practice & Research",
+            items: [
+              "Bug Bounty Programs",
+              "Capture The Flag (CTF)",
+              "Vulnerability Research",
+              "Security Write-ups",
             ],
           },
         ],
@@ -186,7 +209,7 @@ const About = () => {
   const [skillTab, setSkillTab] = useState(0);
 
   return (
-    <div className="min-h-screen bg-primary/30 pt-[15vh] pb-32 md:pb-16 md:pt-36 xl:pt-40 text-center xl:text-left flex md:items-center">
+    <div className="bg-primary/30 pt-[15vh] pb-[100px] md:pb-16 md:pt-36 xl:pt-40 text-center xl:text-left md:flex md:items-center">
       <Circles />
 
       {/* avatar img */}
@@ -200,7 +223,7 @@ const About = () => {
         <Avatar />
       </motion.div>
 
-      <div className="container mx-auto w-full flex flex-col items-center xl:flex-row gap-x-6 pb-24 md:pb-8 px-4 xl:items-center">
+      <div className="container mx-auto w-full flex flex-col items-center xl:flex-row gap-x-6 px-4 xl:items-center">
         {/* text */}
         <div className="flex-1 flex flex-col justify-center">
           <motion.h2
@@ -281,7 +304,7 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="flex flex-col w-full xl:max-w-[48%] min-h-[480px] overflow-visible"
+          className="flex flex-col w-full xl:max-w-[48%] min-h-[480px] overflow-visible mb-20 md:mb-0"
         >
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4 overflow-x-auto w-full justify-center xl:justify-start pb-2">
             {aboutData.map((item, itemI) => (
@@ -298,7 +321,7 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full overflow-visible">
+          <div className="py-2 xl:py-6 pb-[100px] md:pb-2 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full overflow-visible">
             {aboutData[index].title === "certs" ? (
               <CertsCarousel certs={aboutData[index].info} />
             ) : aboutData[index].title === "education" ? (
@@ -382,7 +405,7 @@ const About = () => {
                       ) : null}
 
                       {/* grouped chips — scrollable */}
-                      <div className="max-h-[400px] md:max-h-[330px] overflow-y-auto overflow-x-hidden pr-2 flex flex-col gap-y-4 scrollbar-thin">
+                      <div className="max-h-[250px] md:max-h-[330px] overflow-y-auto overflow-x-hidden pr-2 flex flex-col gap-y-4 skills-scrollbar">
                         {role.groups.map((group) => (
                           <div key={group.title}>
                             <p className="text-[11px] uppercase tracking-widest text-white/30 mb-2">
