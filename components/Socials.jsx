@@ -28,7 +28,7 @@ export const socialData = [
   },
   {
     name: "LinkedIn",
-    link: "https://www.linkedin.com/in/selwyn-uy-5925622a3",
+    link: "https://www.linkedin.com/in/selwyn-uy",
     Icon: RiLinkedinLine,
   },
 ];
