@@ -6,7 +6,7 @@ import {
   RxRocket,
   RxArrowTopRight,
 } from "react-icons/rx";
-import { Pagination } from "swiper";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
