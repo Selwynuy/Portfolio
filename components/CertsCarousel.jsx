@@ -10,11 +10,11 @@ import "swiper/css/pagination";
 const CertsCarousel = ({ certs = [] }) => {
   return (
     <div className="relative w-full">
-      {/* custom nav arrows */}
-      <div className="cert-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4 xl:-translate-x-6 cursor-pointer text-white/60 hover:text-accent transition-colors duration-300">
+      {/* custom nav arrows - hidden on mobile */}
+      <div className="cert-prev hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4 xl:-translate-x-6 cursor-pointer text-white/60 hover:text-accent transition-colors duration-300">
         <BsArrowLeft className="text-2xl" aria-hidden />
       </div>
-      <div className="cert-next absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4 xl:translate-x-6 cursor-pointer text-white/60 hover:text-accent transition-colors duration-300">
+      <div className="cert-next hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4 xl:translate-x-6 cursor-pointer text-white/60 hover:text-accent transition-colors duration-300">
         <BsArrowRight className="text-2xl" aria-hidden />
       </div>
 
@@ -22,26 +22,29 @@ const CertsCarousel = ({ certs = [] }) => {
         slidesPerView={1}
         spaceBetween={16}
         centeredSlides
-        pagination={{ clickable: true }}
+        pagination={{ 
+          clickable: true,
+          dynamicBullets: false,
+        }}
         navigation={{
           prevEl: ".cert-prev",
           nextEl: ".cert-next",
         }}
         modules={[Navigation, Pagination]}
-        className="w-full pb-16"
+        className="w-full certs-swiper pb-20 md:pb-16 mb-20 md:mb-0"
       >
         {certs.map((cert, i) => (
           <SwiperSlide key={i}>
             <div className="mx-auto w-full max-w-[420px] bg-[rgba(65,47,123,0.15)] rounded-xl border border-white/10 overflow-hidden">
               {/* image top — full width, fixed height */}
-              <div className="w-full h-[280px] bg-white/5 border-b border-white/10 overflow-hidden">
+              <div className="w-full h-[180px] md:h-[280px] bg-white/5 border-b border-white/10 overflow-hidden">
                 {cert.image ? (
                   <Image
                     src={cert.image}
                     alt={cert.title}
                     width={420}
                     height={280}
-                    className="object-contain w-full h-full"
+                    className="object-contain w-full h-full scale-90 md:scale-100"
                   />
                 ) : (
                   <span className="text-[13px] text-white/25 text-center px-4 leading-relaxed">
@@ -51,7 +54,7 @@ const CertsCarousel = ({ certs = [] }) => {
               </div>
 
               {/* text bottom */}
-              <div className="p-5">
+              <div className="p-3 md:p-5 text-left">
                 <div className="text-white font-semibold text-[15px] leading-snug">
                   {cert.title}
                 </div>

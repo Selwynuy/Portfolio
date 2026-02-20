@@ -11,6 +11,16 @@
   background-color: #f13024;
 }
 
+/* Certs carousel pagination positioning */
+.certs-swiper .swiper-pagination {
+  bottom: 0px !important;
+  margin-top: 8px;
+}
+
+.certs-swiper .swiper-pagination-bullets {
+  bottom: 0px !important;
+}
+
 .swiper-button-next:after,
 .swiper-button-prev:after,
 .swiper-button-next:after,
@@ -95,6 +105,35 @@ main.page-scrollable-main::-webkit-scrollbar-thumb:hover {
 
 /* Firefox scrollbar - main element */
 main.page-scrollable-main {
+  scrollbar-width: thin;
+  scrollbar-color: #F13024 rgba(19, 20, 36, 0.8);
+}
+
+/* Custom Scrollbar Styling - Skills section scrollable area */
+.skills-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.skills-scrollbar::-webkit-scrollbar-track {
+  background: rgba(19, 20, 36, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.skills-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F13024 0%, rgba(241, 48, 36, 0.8) 100%);
+  border-radius: 6px;
+  border: 2px solid rgba(19, 20, 36, 0.8);
+  transition: all 0.3s ease;
+}
+
+.skills-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F13024 0%, #ff4d3d 100%);
+  border-color: rgba(19, 20, 36, 0.9);
+}
+
+/* Firefox scrollbar - skills section */
+.skills-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #F13024 rgba(19, 20, 36, 0.8);
 }
