@@ -20,15 +20,19 @@ const Layout = ({ children }) => {
 
   // Add class to html and body for work detail pages
   useEffect(() => {
+    let timer;
     if (isWorkDetailPage) {
-      document.documentElement.classList.add("page-scrollable");
-      document.body.classList.add("page-scrollable");
+      timer = setTimeout(() => {
+        document.documentElement.classList.add("page-scrollable");
+        document.body.classList.add("page-scrollable");
+      }, 1200); // Delay to match page transition
     } else {
       document.documentElement.classList.remove("page-scrollable");
       document.body.classList.remove("page-scrollable");
     }
-    
+
     return () => {
+      clearTimeout(timer);
       document.documentElement.classList.remove("page-scrollable");
       document.body.classList.remove("page-scrollable");
     };
@@ -36,7 +40,9 @@ const Layout = ({ children }) => {
 
   return (
     <main
-      className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative ${isWorkDetailPage ? "overflow-visible" : ""}`}
+      className={`bg-site text-white bg-cover bg-no-repeat ${
+        sora.variable
+      } font-sora relative ${!isWorkDetailPage ? "page" : "page-scrollable-main"}`}
     >
       {/* metadata */}
       <Head>

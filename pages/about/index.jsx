@@ -111,7 +111,7 @@ export const aboutData = [
         stage: "Jan 2026",
         site: "Hackviser",
         category: "Security",
-        image: "/certs/capt.png",
+        image: "/certs/capt.jpg",
       },
       {
         title: "CJWPT",
@@ -120,7 +120,7 @@ export const aboutData = [
         stage: "Jan 2026",
         site: "Hack & Fix",
         category: "Security",
-        image: "/certs/cjwpt.png",
+        image: "/certs/cjwpt.jpg",
       },
       {
         title: "BTLJ",
@@ -129,7 +129,7 @@ export const aboutData = [
         stage: "Jan 2026",
         site: "Security Blue Team",
         category: "Security",
-        image: "/certs/btlj.png",
+        image: "/certs/btlj.jpeg",
       },
       {
         title: "CPPS",
@@ -138,7 +138,7 @@ export const aboutData = [
         stage: "Dec 2025",
         site: "Hack & Fix",
         category: "Security",
-        image: "/certs/cpps.png",
+        image: "/certs/cpps.jpg",
       },
       {
         title: "Introduction to Bug Bounty",
@@ -146,7 +146,7 @@ export const aboutData = [
         stage: "Dec 2025",
         site: "Red Team Leaders",
         category: "Security",
-        image: "/certs/bug-bounty.png",
+        image: "/certs/ibb.jpg",
       },
       {
         title: "CCSC",
@@ -155,7 +155,7 @@ export const aboutData = [
         stage: "Dec 2025",
         site: "Hack & Fix",
         category: "General",
-        image: "/certs/ccsc.png",
+        image: "/certs/ccsc.jpg",
       },
       // Add DevOps/CI-CD certs here too (category: "DevOps")
       // {

@@ -25,7 +25,7 @@ const ProjectDetail = ({ project }) => {
   }
 
   return (
-    <div className="min-h-screen bg-primary/30 py-32 overflow-visible">
+    <div className="h-full bg-primary/30 py-32">
       <Circles />
       <div className="container mx-auto px-4 pb-20">
         {/* back button */}
