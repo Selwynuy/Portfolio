@@ -329,7 +329,7 @@ const About = () => {
                 {aboutData[index].info.map((edu, i) => (
                   <div
                     key={i}
-                    className="w-full max-w-[420px] mx-auto xl:mx-0 bg-[rgba(65,47,123,0.15)] rounded-xl border border-white/10 overflow-hidden"
+                    className="w-full max-w-[420px] xl:mx-0 bg-[rgba(65,47,123,0.15)] rounded-xl border border-white/10 overflow-hidden"
                   >
                     {/* banner image */}
                     <div className="w-full h-[180px] bg-white/5 border-b border-white/10 flex items-center justify-center overflow-hidden">
