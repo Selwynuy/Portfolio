@@ -209,7 +209,7 @@ const About = () => {
   const [skillTab, setSkillTab] = useState(0);
 
   return (
-    <div className="bg-primary/30 pt-[15vh] pb-[100px] md:pb-16 md:pt-36 xl:pt-40 text-center xl:text-left md:flex md:items-center">
+    <div className="bg-primary/30 pt-[15vh] pb-[120px] md:pb-16 md:pt-36 xl:pt-40 text-center xl:text-left md:flex md:items-center min-h-screen">
       <Circles />
 
       {/* avatar img */}
@@ -321,7 +321,7 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 pb-[100px] md:pb-2 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full overflow-visible">
+          <div className="py-2 xl:py-6 pb-[120px] md:pb-2 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start w-full overflow-visible">
             {aboutData[index].title === "certs" ? (
               <CertsCarousel certs={aboutData[index].info} />
             ) : aboutData[index].title === "education" ? (
@@ -434,7 +434,7 @@ const About = () => {
                 {aboutData[index].info.map((item, itemI) => (
                   <div
                     key={itemI}
-                    className="w-full bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl pl-4 pr-5 py-5 border-l-2 border-l-accent"
+                    className="w-full bg-[rgba(65,47,123,0.15)] border border-white/10 rounded-xl pl-4 pr-5 py-5 border-l-2 border-l-accent text-left"
                   >
                     {/* Primary: Position (most prominent) */}
                     {item.position && (
