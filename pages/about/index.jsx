@@ -116,7 +116,7 @@ export const aboutData = [
       {
         title: "Next.js Web Developer",
         position: "Freelance",
-        stage: "2020 - Present",
+        stage: "2023 - Present",
       },
 
     ],
